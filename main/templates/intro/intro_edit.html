@@ -11,7 +11,8 @@
     <form action="{% url 'intro_edit' intro.pk %}" method='POST'>
 
         {% csrf_token %}
-        <input type="text" value="{{intro.body}}" style="width:400px; height:300px;" name="body">
+
+        <textarea name="intro" cols="30" rows="10" value="{{intro.body}}"></textarea>
 
         <button type="submit">제출</button>
 

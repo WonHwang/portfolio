@@ -10,7 +10,7 @@
     {% else %}
     <input type="file" name="image" accept=".jpg, .jpeg, .png"><br>
     {% endif %}
-    <input type="text" value="{{project.detail}}" name="detail" style="width:200px; height:100px;"><br>
+    <textarea name="detail" cols="30" rows="10" value="{{project.detail}}"></textarea>
     <button type="submit">제출</button>
 </form>
 
