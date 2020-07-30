@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+
+    <h5>{{intro.body}}</h5>
+    <h6><a href="{% url 'intro_edit' intro.pk %}">수정</a></h6>
+    <h6><a href="{% url 'intro_delete' intro.pk %}">삭제</a></h6>
+
+    {% endif %}
+</body>
+</html>

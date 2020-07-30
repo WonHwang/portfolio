@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile_list' %}"><h1>프로필</h1></a>
+        <a href="{% url 'intro_list' %}"><h1>인사말</h1></a>
+        <a href="{% url 'project_list' %}"><h1>프로젝트</h1></a>
+        <a href="/admin"><h1>관리자</h1></a>
+    {% endif %}
+    <h1>관리자만 접근가능합니다.</h1>
+    <a href="{% url 'home' %}">돌아가기</a>
+</body>
+</html>

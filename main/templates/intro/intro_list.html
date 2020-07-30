@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+
+<a href="{% url 'create_intro' %}">만들기</a><br><br>
+
+{% for intro in intros.all %}
+<a href="{% url 'intro_detail' intro.pk %}">{{intro.body}}</a>
+{% endfor %}
+<br><h5><a href="{% url 'home' %}">홈으로</a></h5>
+{% endif %}

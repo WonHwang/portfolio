@@ -1,0 +1,12 @@
+{% if user.is_authenticated %}
+<a href="{% url 'create_project' %}">만들기</a>
+
+{% for project in projects.all %}
+
+<a href="{% url 'detail' project.pk %}"><h2>{{project.pk}}. {{project.title}}</h2></a>
+
+{% endfor %}
+
+<br><h5><a href="{% url 'home' %}">홈으로</a></h5>
+
+{% endif %}

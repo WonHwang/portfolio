@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdiblePotato Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        #top {
+            background-image: url("https://www.open.edu/openlearn/ocw/pluginfile.php/1317197/mod_resource/content/0/sc_1_olhp_786px.jpg");
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 120%;
+            background-attachment: fixed;
+            margin-top: 0%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #typing {
+            text-align: center;
+            font-family: 'Malgun Gothic';
+            font-weight: bolder;
+            font-size: 60px;
+            color: white;
+        }
+
+        footer {
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+
+        header {
+            opacity: 0.8;
+        }
+
+        #intro {
+            background-color: white;
+        }
+
+        #skill {
+            margin-top: 0%;
+            background-color: lightgray;
+        }
+
+        #project {
+            margin-top: 0%;
+            background-color: gray;
+        }
+
+        #contact {
+            margin-top: 0%;
+            background-color: darkgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#header"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#intro">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skill">Skill</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#project">Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/edit">Edit</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="top" id="top">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p id='typing'></p>
+        <script>
+            var x = "황지원의 포트폴리오"
+            var i = 0;
+
+            function typeWriter() {
+                if (i < x.length) {
+                    document.getElementById("typing").innerHTML += x[i];
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        </script>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="intro" id="intro">
+        <div class="container">
+
+            <br><br><br>
+            <h2>Introduction</h2>
+            <br>
+            {% for intro in intros.all %}
+            <p style="white-space:pre-wrap;">{{intro.body}}</p>
+            {% endfor %}
+            
+            <br><br>
+            <p>
+                <h4>약력</h4>
+            </p>
+            <ul>
+                {% for profile in profiles.all %}
+                <li>{{profile.body}}</li>
+                {% endfor %}
+            </ul><br><br>
+        </div>
+    </div>
+    <div class="skill" id="skill">
+        <div class="container">
+            <br><br><br>
+            <h2>Skill</h2>
+            <br>
+            <ul>
+                <li>C</li><br>
+                <li>Python</li><br>
+                <li>Django</li><br>
+                <li>HTML</li><br>
+                <li>CSS</li><br>
+            </ul>
+        </div>
+        <br>
+    </div>
+    <div class="project" id="project">
+        <div class="container">
+            <br><br><br>
+            <h2>Project</h2>
+            <br>
+            {% for project in projects.all %}
+            <h3>{{project.title}}</h3>
+            <h5>{{project.period}}</h5>
+            <p>{{project.body}}</p>
+            <a href="{% url 'detail' project.id %}"
+                onclick="window.open(this.href, '_blank', 'width=500px, height=500px, toolbars=no,scrollbars=no'); return false;">
+                <h6>자세히 보기</h6>
+            </a>
+            <hr>
+            {% endfor %}
+            <br>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <div class="container">
+            <br><br><br>
+            <h2>Contact</h2>
+            <br>
+            <ul>
+                <li>
+                    <p>ediblepotato@gmail.com</p>
+                </li>
+                <li>
+                    <p>crisjan@naver.com</p>
+                </li>
+                <li>
+                    <p>jeeweon229@uos.ac.kr</p>
+                </li>
+                <li>
+                    <a href="https://github.com/WonHwang">
+                        Github
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <br>
+    </div>
+
+    <footer>
+        <br><br>
+        <div class="container" id="footer">
+            <p>designed by EdiblePotato</p>
+            <a href="https://github.com/WonHwang"><img
+                    src="https://cdn.icon-icons.com/icons2/936/PNG/512/github-logo_icon-icons.com_73546.png"
+                    style="height : 40px; width : 40px; filter : invert();"></a>
+        </div>
+        <br><br>
+    </footer>
+</body>
+
+</html>

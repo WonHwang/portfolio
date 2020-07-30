@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create_project</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <form action="{% url 'create_project' %}" method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="제목" name='title'><br>
+        <input type="text" placeholder="기간" name='period'><br>
+        <input type="text" placeholder="내용" style="width:200px; height:100px;" name='body'><br>
+        <input type="file" name="image" accept=".jpg, .jpeg, .png" id='id_image'><br>
+        <input type="text" placeholder='설명' name='detail'style="width:200px; height:100px;"><br>
+        <button type="submit">제출</button>
+    </form>
+{% endif %}
+</body>
+</html>

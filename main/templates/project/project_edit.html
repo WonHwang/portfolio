@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+
+<form action="{% url 'project_edit' project.pk %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" value="{{project.title}}" name="title"><br>
+    <input type="text" value="{{project.period}}" name="period"><br>
+    <input type="text" value="{{project.body}}" name="body" style="width:200px; height:100px;"><br>
+    {% if project.image %}
+    <input type="file" value="{{project.image.url}}" name="image" accept=".jpg, .jpeg, .png"><br>
+    {% else %}
+    <input type="file" name="image" accept=".jpg, .jpeg, .png"><br>
+    {% endif %}
+    <input type="text" value="{{project.detail}}" name="detail" style="width:200px; height:100px;"><br>
+    <button type="submit">제출</button>
+</form>
+
+
+{% endif %}

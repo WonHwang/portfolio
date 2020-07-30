@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+
+<a href="{% url 'create_profile' %}">만들기</a><br><br>
+
+{% for profile in profiles.all %}
+<h5><a href="{% url 'profile_detail' profile.pk %}">{{profile.body}}</h5></a>
+{% endfor %}
+<br><h5><a href="{% url 'home' %}">홈으로</a></h5>
+{% endif %}
