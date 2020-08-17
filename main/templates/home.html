@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +23,7 @@
 
     <style>
         #top {
-            background-image: url("https://www.open.edu/openlearn/ocw/pluginfile.php/1317197/mod_resource/content/0/sc_1_olhp_786px.jpg");
+            background-image: url("{% static '/main_background.jpg' %}");
             background-repeat: no-repeat;
             background-position: top;
             background-size: 120%;
@@ -212,7 +214,7 @@
         <div class="container" id="footer">
             <p>designed by EdiblePotato</p>
             <a href="https://github.com/WonHwang"><img
-                    src="https://cdn.icon-icons.com/icons2/936/PNG/512/github-logo_icon-icons.com_73546.png"
+                    src="{% static '/github_icon.png' %}"
                     style="height : 40px; width : 40px; filter : invert();"></a>
         </div>
         <br><br>
